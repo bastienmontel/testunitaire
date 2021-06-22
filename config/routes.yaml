@@ -1,0 +1,84 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+# config/routes.yaml
+
+default:
+    path: /{_locale}
+    controller: App\Controller\DefaultController::index
+    requirements:
+        _locale: '%app.supported_locales%'
+    defaults:
+        _locale: fr
+
+contact:
+    path: /{_locale}/contact
+    controller: App\Controller\DefaultController::contact
+    requirements:
+        _locale: '%app.supported_locales%'
+
+boutique:
+    path: /{_locale}/boutique
+    controller: App\Controller\BoutiqueController::index
+    requirements:
+        _locale: '%app.supported_locales%'
+
+rayon:
+    path: /{_locale}/boutique/rayon/{idCategorie}
+    controller: App\Controller\BoutiqueController::rayon
+    requirements:
+        _locale: '%app.supported_locales%'
+
+panier_index:
+    path: /{_locale}/boutique/panier
+    controller: App\Controller\PanierController::index
+    requirements:
+        _locale: '%app.supported_locales%'
+
+panier_ajouter:
+    path: /{_locale}/boutique/panier/ajouter/{idProduit}/{quantite}
+    controller: App\Controller\PanierController::ajouter
+    requirements:
+        _locale: '%app.supported_locales%'
+
+panier_enlever:
+    path: /{_locale}/boutique/panier/enlever/{idProduit}/{quantite}
+    controller: App\Controller\PanierController::enlever
+    requirements:
+        _locale: '%app.supported_locales%'
+
+panier_supprimer:
+    path: /{_locale}/boutique/panier/supprimer/{idProduit}
+    controller: App\Controller\PanierController::supprimer
+    requirements:
+        _locale: '%app.supported_locales%'
+
+panier_vider:
+    path: /{_locale}/boutique/panier/vider
+    controller: App\Controller\PanierController::panier
+    requirements:
+        _locale: '%app.supported_locales%'
+    
+panier_validation:
+    path: /{_locale}/boutique/panier/validation
+    controller: App\Controller\PanierController::validation
+    requirements:
+        _locale: '%app.supported_locales%'
+
+user_accueil:
+    path: /{_locale}/user/accueil
+    controller: App\Controller\UserController::index
+    requirements:
+        _locale: '%app.supported_locales%'
+
+user_inscription:
+    path: /{_locale}/user/inscription
+    controller: App\Controller\UserController::new
+    requirements:
+        _locale: '%app.supported_locales%'
+
+#home_page:
+#  path: /{userName}
+#  controller: App\Controller\DefaultController::index
+#  defaults:
+#    userName: 'Anonyme'
